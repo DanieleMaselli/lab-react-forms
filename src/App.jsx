@@ -8,34 +8,41 @@ import studentsData from "./assets/students.json";
 
 function App() {
   const [students, setStudents] = useState(studentsData);
-
+  const [name, setName] = useState('')
+  const [image, setImage] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  
 
   return (
     <div className="App pt-20">
       <Navbar />
 
       {/* FORM */}
-      <form>
+      <form onSubmit={(event)=> {
+        event.preventDefault()
+
+      }}>
         <span>Add a Student</span>
         <div>
           <label>
             Full Name
-            <input name="fullName" type="text" placeholder="Full Name" />
+            <input value={name} onChange={event => {setName(event.target.value)}} name="fullName" type="text" placeholder="Full Name" />
           </label>
 
           <label>
             Profile Image
-            <input name="image" type="url" placeholder="Profile Image" />
+            <input value={image} onChange={event => {setImage(event.target.value)}} name="image" type="url" placeholder="Profile Image" />
           </label>
 
           <label>
             Phone
-            <input name="phone" type="tel" placeholder="Phone" />
+            <input value={phone} onChange={event => {setPhone(event.target.value)}} name="phone" type="tel" placeholder="Phone" />
           </label>
 
           <label>
             Email
-            <input name="email" type="email" placeholder="Email" />
+            <input value={email} onChange={event => {setEmail(event.target.value)}} name="email" type="email" placeholder="Email" />
           </label>
         </div>
 
